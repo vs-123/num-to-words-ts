@@ -15,12 +15,18 @@ describe("Convert number to words", () => {
     expect(convert(0)).toBe("zero");
   });
 
-  test("Two digit numbers and edge cases", () => {
+  test("Two digit numbers", () => {
     expect(convert(11)).toBe("eleven");
     expect(convert(15)).toBe("fifteen");
-    // expect(convert(23)).toBe("twenty three");
-    // expect(convert(59)).toBe("fifty nine");
     expect(convert(50)).toBe("fifty");
     expect(convert(70)).toBe("seventy");
+  });
+
+  test("Two digit -teen numbers", () => {
+    expect(convert(14)).toBe("fourteen");
+    expect(convert(16)).toBe("sixteen");
+    expect(convert(17)).toBe("seventeen");
+    expect(convert(18)).toBe("eighteen"); // <-- edge case
+    expect(convert(19)).toBe("nineteen");
   });
 });

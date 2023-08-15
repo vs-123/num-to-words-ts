@@ -39,30 +39,25 @@ export function convert(n: number): String {
             return "eighty";
 
         // Between 11 to 19
-        // Will deal with the -teen numbers later
         case 11:
             return "eleven";
         case 12:
             return "twelve";
         case 13:
             return "thirteen";
-        case 14:
-            return "fourteen";
         case 15:
             return "fifteen";
-        case 16:
-            return "sixteen";
-        case 17:
-            return "seventeen";
         case 18:
             return "eighteen";
-        case 19:
-            return "nineteen";
         
         default:
             // -ty numbers
             if (n%10 == 0 && n >= 60 && n <= 90) {
                 return convert(n/10)+"ty";
+            }
+            // -teen numbers
+            if (n >= 13 && n <= 19) {
+                return convert(n%10)+"teen";
             }
             return "";
     }
