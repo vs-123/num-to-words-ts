@@ -63,6 +63,34 @@ export function convert(n: number): String {
             if (n >= 21 && n <= 99) {
                 return `${convert(n - (n%10))} ${convert(n%10)}`;
             }
+            // Between 100 to 999
+            if (n >= 100 && n <= 999) {
+                return convert_with_place_value(n, 100, "hundred");
+            }
+            // Between 1000 to 999_999
+            if (n >= 1000 && n <= 999_999) {
+                return convert_with_place_value(n, 1000, "thousand");
+            }
+            // Between 1M to 999M
+            if (n >= 1_000_000 && n <= 999_999_999) {
+                return convert_with_place_value(n, 1_000_000, "million");
+            }
+            // Between 1B to 999B
+            if (n >= 1_000_000_000 && n <= 999_999_999_999) {
+                return convert_with_place_value(n, 1_000_000_000, "billion");
+            }
             return "";
+    }
+}
+
+function convert_with_place_value(
+    n: number,
+    place_value: number,
+    place_value_name: string
+    ): string {
+    if (n % place_value == 0) {
+        return `${convert(n/place_value)} ${place_value_name}`;
+    } else {
+        return `${convert(n - (n%place_value))} ${convert(n%place_value)}`;
     }
 }
