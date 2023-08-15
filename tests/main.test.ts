@@ -29,4 +29,13 @@ describe("Convert number to words", () => {
     expect(convert(18)).toBe("eighteen"); // <-- edge case
     expect(convert(19)).toBe("nineteen");
   });
+
+  test("Two digit numbers - 21 to 99", () => {
+    expect(convert(24)).toBe("twenty four");
+    expect(convert(39)).toBe("thirty nine");
+    expect(convert(42)).toBe("forty two");
+    expect(convert(56)).toBe("fifty six");
+    expect(convert(63)).toBe("sixty three");
+    expect(convert(96)).toBe("ninety six");
+  });
 });

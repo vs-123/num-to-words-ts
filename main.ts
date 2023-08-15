@@ -59,6 +59,10 @@ export function convert(n: number): String {
             if (n >= 13 && n <= 19) {
                 return convert(n%10)+"teen";
             }
+            // Between 21 to 99
+            if (n >= 21 && n <= 99) {
+                return `${convert(n - (n%10))} ${convert(n%10)}`;
+            }
             return "";
     }
 }
