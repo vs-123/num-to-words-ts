@@ -1,8 +1,4 @@
-function main() {
-    console.log(convert(12))
-}
-
-function convert(n: number): String {
+export function convert(n: number): String {
     if (n < 0) {
         return "negative " + convert(-n);
     }
@@ -71,5 +67,3 @@ function convert(n: number): String {
             return "";
     }
 }
-
-main();
