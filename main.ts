@@ -64,7 +64,12 @@ function convert(n: number): String {
             return "nineteen";
         
         default:
-            // Will work on this later
+            // -ty numbers
+            if (n%10 == 0 && n >= 60 && n <= 90) {
+                return convert(n/10)+"ty";
+            }
             return "";
     }
 }
+
+main();
